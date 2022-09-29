@@ -30,5 +30,16 @@ namespace ModuloAPI.Controllers
 
                     }
 
+                    [HttpGet("{id}")]
+                    public IActionResult ObterPorId(int id){
+
+                                    var contato  = _context.Contatos.Find(id);
+                                    if(contato == null)
+                                            return NotFound();
+                                    return Ok(contato);
+                    }
+
+
+
         }
 }
