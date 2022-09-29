@@ -43,7 +43,7 @@ namespace ModuloAPI.Controllers
                     public IActionResult Atualizar (int id, Contato contato){
 
                                 var ContatoBanco =  _context.Contatos.Find(id);
-                                 if(contato == null)
+                                 if(ContatoBanco == null)
                                             return NotFound();
                                 ContatoBanco.Nome = contato.Nome;
                                 ContatoBanco.Telefone = contato.Telefone;
@@ -55,8 +55,9 @@ namespace ModuloAPI.Controllers
 
                                 return Ok(ContatoBanco);
 
-    }
+                }
 
+              
 
 
         }
