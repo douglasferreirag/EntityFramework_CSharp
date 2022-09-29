@@ -56,8 +56,18 @@ namespace ModuloAPI.Controllers
                                 return Ok(ContatoBanco);
 
                 }
+                [HttpDelete("{id}")]
+                public IActionResult Deletar(int id){
 
-              
+                        var ContatoBanco =  _context.Contatos.Find(id);
+                        if(ContatoBanco == null)
+                                return NotFound();
+                        _context.Contatos.Remove(ContatoBanco);
+                        _context.SaveChanges();
+                        return NoContent();
+
+                }
+  
 
 
         }
